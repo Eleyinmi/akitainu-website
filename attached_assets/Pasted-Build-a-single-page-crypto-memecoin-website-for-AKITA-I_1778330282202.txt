@@ -1,0 +1,300 @@
+Build a single-page crypto memecoin website for AKITA INU — a CTO (Community Takeover) memecoin on the TON blockchain. Use HTML, CSS, and vanilla JavaScript only (no frameworks). The entire site must be in one index.html file.
+
+═══════════════════════════════════════
+TECH STACK & SETUP
+═══════════════════════════════════════
+- Pure HTML5 + CSS3 + Vanilla JS (single file)
+- No React, no Vue, no build tools
+- Google Fonts: Import "Orbitron" (headings) and "Inter" (body)
+- Use AOS.js (Animate on Scroll) via CDN for scroll animations
+- Use particles.js via CDN for hero particle background
+- Fully responsive — mobile-first
+
+═══════════════════════════════════════
+GLOBAL DESIGN SYSTEM
+═══════════════════════════════════════
+Color palette (CSS variables):
+  --bg-primary: #040812
+  --bg-secondary: #080f1e
+  --bg-card: rgba(8, 20, 45, 0.7)
+  --ton-blue: #0098EA
+  --ton-blue-light: #29b6f6
+  --ton-blue-glow: rgba(0, 152, 234, 0.3)
+  --gold: #f0b429
+  --text-primary: #ffffff
+  --text-secondary: #a0b4cc
+  --border-glow: rgba(0, 152, 234, 0.4)
+
+Typography:
+  Headings → "Orbitron", sans-serif (all caps, letter-spacing: 0.1em)
+  Body → "Inter", sans-serif
+
+Reusable effects:
+  .glow-border { border: 1px solid var(--border-glow); box-shadow: 0 0 20px var(--ton-blue-glow), inset 0 0 20px rgba(0,152,234,0.05); }
+  .glass-card { background: var(--bg-card); backdrop-filter: blur(12px); border-radius: 16px; }
+  .btn-primary { background: linear-gradient(135deg, #0098EA, #0066cc); color: white; padding: 14px 32px; border: none; border-radius: 8px; font-family: "Orbitron"; font-size: 14px; letter-spacing: 0.08em; cursor: pointer; box-shadow: 0 0 30px var(--ton-blue-glow); transition: all 0.3s; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 50px var(--ton-blue-glow); }
+  .btn-outline { background: transparent; border: 1px solid var(--ton-blue); color: var(--ton-blue); padding: 14px 32px; border-radius: 8px; font-family: "Orbitron"; font-size: 14px; letter-spacing: 0.08em; cursor: pointer; transition: all 0.3s; }
+  .btn-outline:hover { background: var(--ton-blue-glow); }
+
+═══════════════════════════════════════
+NAVIGATION
+═══════════════════════════════════════
+Fixed top navbar. Transparent with blur backdrop.
+Left: "AKITA" logo text in Orbitron + TON blue dot/accent
+Right: nav links → About | Tokenomics | Roadmap | Community
+Add a "Buy AKITA" CTA button (btn-primary, smaller) on the right end.
+Add smooth scroll behavior to all anchor links.
+On mobile: hamburger menu that toggles a slide-down nav.
+
+═══════════════════════════════════════
+SECTION 1 — HERO
+═══════════════════════════════════════
+Full viewport height. Dark starfield background using particles.js.
+Add subtle blue radial gradient glow behind the main character area.
+
+Left side (60% width on desktop, full width mobile):
+  - Small eyebrow label: "TON BLOCKCHAIN · COMMUNITY TAKEOVER"
+    (styled: uppercase, TON blue, letter-spacing, small font)
+  - Main headline (h1, Orbitron, 56px desktop / 32px mobile):
+    AKITA INU
+    THE GUARDIAN OF TON
+    (Use a line break — "INU" on line 1 styled in --gold, "THE GUARDIAN OF TON" in white)
+  - Subheading (Inter, 18px, text-secondary):
+    "Loyalty. Bravery. Honor."
+  - Body paragraph:
+    "A warrior born on the TON chain — not chasing hype, but building legacy.
+    Akita doesn't flinch at the dip. He doesn't chase the pump.
+    He stands guard, fights fair, and brings his community to the moon."
+  - Two buttons side by side:
+    [Buy AKITA ↗] (btn-primary) — link: https://dedust.io (placeholder, user will update)
+    [Join Community] (btn-outline) — link: https://t.me/AkitaOnTonNetwork
+
+Right side (40% width on desktop):
+  - Display the hero image (img src="images/hero.jpg" or whichever image user uploads)
+  - Add a slow floating animation (keyframe: translateY -12px → 12px, 4s ease-in-out infinite)
+  - Add a soft blue glow ring behind the image (radial gradient absolutely positioned)
+
+Below hero: animated scrolling ticker bar (dark strip, TON blue text):
+  "AKITA INU · GUARDIAN OF TON · LOYALTY · BRAVERY · HONOR · CTO PROJECT · TON BLOCKCHAIN · 🐕 AKITA INU ·" (repeating, CSS marquee animation)
+
+═══════════════════════════════════════
+SECTION 2 — THE AKITA SPIRIT (About)
+═══════════════════════════════════════
+Section background: --bg-secondary
+Centered layout, max-width 860px.
+
+Section label (small, TON blue, uppercase): "WHO IS AKITA?"
+Section title (Orbitron, 40px): "More Than a Meme. A Movement."
+
+Body text (Inter, 17px, line-height 1.8, text-secondary):
+"In a market full of noise, Akita stays true.
+We climb every candle with heart, stand through every dip with honor, and rise again with unshakable loyalty.
+This isn't hype — it's devotion. This is the Akita spirit."
+
+Below the text, 4 trait cards in a 2x2 grid (or 4-column row on desktop).
+Each card: glass-card + glow-border style, centered icon (use an emoji or SVG), title + short description.
+
+Card 1: 🛡 LOYALTY
+"He never abandons his holders. Through every dip, through every storm."
+
+Card 2: ⚔ BRAVERY
+"He faces every market challenge head-on. No fear. No retreat."
+
+Card 3: 🏆 HONOR
+"Community-first, always. Fair launch, no team allocation, no rugs."
+
+Card 4: 🐾 GUARDIANSHIP
+"Protecting TON holders and the ecosystem he calls home."
+
+Animate cards with AOS: fade-up, staggered delay (0, 100, 200, 300ms)
+
+═══════════════════════════════════════
+SECTION 3 — LIVE TOKEN STATS
+═══════════════════════════════════════
+Section label: "TOKEN STATS"
+Section title: "AKITA INU On-Chain"
+
+6 stat cards in a responsive grid (3 cols desktop, 2 tablet, 1 mobile).
+Each card: glass-card + glow-border.
+
+Card structure:
+  - Top: small label (text-secondary, 12px uppercase)
+  - Middle: large value (Orbitron, 28px, white or TON blue)
+  - Bottom: small change indicator (green for positive %, with ▲ arrow)
+
+Cards:
+1. Token Price — $0.000042 — ▲ +12.4%
+2. Market Cap — $420,000 — ▲ +8.2%
+3. Liquidity — $85,000 — ▲ +5.1%
+4. 24H Volume — $62,000 — ▲ +22.7%
+5. Holders — 1,247 — ▲ +43 today
+6. Daily Change — +12.4% — "Bullish 🔥"
+
+Below the cards, a contract address bar:
+Dark card, full width, flex row:
+  Left: label "CONTRACT ADDRESS" + the address in monospace font:
+    EQD6ikvSPUcpE6HB_OjxCMVkFwrtK73CVV1VLR6NWEykojuQ
+  Right: [Copy Address] button + [Buy on DeDust ↗] button
+
+Copy button should use JS to copy the address to clipboard and show "Copied!" feedback.
+
+═══════════════════════════════════════
+SECTION 4 — TOKENOMICS
+═══════════════════════════════════════
+Section title: "MANGUNOMICS" → change to "AKITANOMICS"
+Subtitle: "Fair. Transparent. Community-Owned."
+
+Note banner (styled box, gold border):
+"⚠ No team allocation. No VC. No presale. This is a 100% CTO project."
+
+4 tokenomics cards in a row. Each card: glass-card + glow-border.
+Add a large circular percentage indicator (CSS-only donut or SVG circle) per card.
+
+Card 1: Liquidity — 60% — (blue)
+Card 2: Community & Marketing — 20% — (gold)
+Card 3: CEX Listing Fund — 15% — (teal/cyan)
+Card 4: Burn — 5% — (red/orange)
+
+Below, a single line:
+"Total Supply: 1,000,000,000 AKITA"
+
+Animate circles on scroll: use CSS transition on stroke-dashoffset triggered by IntersectionObserver.
+
+═══════════════════════════════════════
+SECTION 5 — ROADMAP
+═══════════════════════════════════════
+Section title: "THE MISSION"
+Subtitle: "A CTO journey built with the community, for the community."
+
+Vertical timeline design (centered line, alternating left/right on desktop, left-aligned on mobile).
+Timeline line: glowing blue vertical line.
+Each phase node: glowing blue dot + glass card.
+
+Phase 1 — "AWAKENING" (current phase — mark as ACTIVE with glowing ring)
+  ✓ CTO launched on TON
+  ✓ Community formed
+  ✓ Telegram & X channels live
+  → Building trust and momentum
+
+Phase 2 — "THE PUSH"
+  → Marketing campaign launch
+  → Influencer outreach
+  → DEX listing promotion
+  → Community referral program
+
+Phase 3 — "ALPHA PACK"
+  → CEX listing pursuit
+  → Strategic partnerships
+  → Utility exploration
+  → Cross-chain awareness
+
+Phase 4 — "NUKE THE MOON"
+  → AKITA INU ecosystem growth
+  → Long-term loyalty rewards
+  → Community governance
+
+Add note below timeline (small, italic, text-secondary):
+"* This roadmap evolves with the community. We are the team."
+
+═══════════════════════════════════════
+SECTION 6 — HOW TO BUY
+═══════════════════════════════════════
+Section title: "JOIN THE PACK"
+Subtitle: "Get your AKITA in 3 simple steps."
+
+3 step cards in a row. Each: glass-card + numbered glow badge on top.
+
+Step 1 — "Get a TON Wallet"
+"Download Tonkeeper or any TON-compatible wallet. Create your wallet and save your seed phrase."
+
+Step 2 — "Buy TON"
+"Purchase TON from any major exchange (Binance, OKX, Bybit) and send it to your wallet."
+
+Step 3 — "Swap for AKITA"
+"Go to DeDust.io, paste the contract address, and swap TON for AKITA INU."
+Contract: EQD6ikvSPUcpE6HB_OjxCMVkFwrtK73CVV1VLR6NWEykojuQ
+
+Add a large [Buy AKITA on DeDust ↗] button centered below.
+
+═══════════════════════════════════════
+SECTION 7 — COMMUNITY
+═══════════════════════════════════════
+Full-width section with a dark blue radial glow background.
+Section title (large, Orbitron): "JOIN THE PACK 🐕"
+Subtitle: "Akita doesn't fight alone. Neither should you."
+
+4 social link cards in a row, each: glass-card + glow-border + icon + platform name + description + button.
+
+Telegram: https://t.me/AkitaOnTonNetwork
+"Join 1,000+ holders in the Akita army"
+[Join Telegram]
+
+Twitter/X: https://x.com/akitaonton1
+"Follow for alpha, updates, and meme warfare"
+[Follow on X]
+
+DexScreener: https://dexscreener.com (placeholder)
+"Track the chart live"
+[View Chart]
+
+TON Blockchain: https://tonscan.org (placeholder)
+"Verify on-chain"
+[View on TonScan]
+
+═══════════════════════════════════════
+FOOTER
+═══════════════════════════════════════
+Dark background (#020810).
+3-column layout (stacks on mobile):
+
+Column 1: AKITA logo + tagline
+"Loyalty. Bravery. Honor.
+The Guardian of TON."
+
+Column 2: Quick links
+About | Tokenomics | Roadmap | How to Buy | Community
+
+Column 3: Community links (icon + text)
+Telegram | Twitter/X | DexScreener | TonScan
+
+Bottom bar (border-top):
+Left: "© 2025 AKITA INU. Community-owned. CTO Project."
+Right: "Not financial advice. DYOR."
+Both in text-secondary, 12px.
+
+═══════════════════════════════════════
+ANIMATIONS & POLISH
+═══════════════════════════════════════
+- particles.js config: small white/blue dots, slow movement, line connections in TON blue at low opacity
+- AOS.js: fade-up on all section cards, staggered delays
+- Hero image: slow float animation (CSS keyframes)
+- Stat card numbers: count-up animation on scroll using IntersectionObserver + JS counter
+- Tokenomics circles: stroke-dashoffset transition on scroll
+- Timeline: phased reveal on scroll
+- All buttons: hover lift + glow intensify (CSS transition)
+- Scrollbar: custom thin dark scrollbar with TON blue thumb
+- Smooth scroll: html { scroll-behavior: smooth; }
+
+═══════════════════════════════════════
+ASSETS (user will provide)
+═══════════════════════════════════════
+Create an /images folder. Reference these placeholders — user will drop in actual files:
+  images/hero.jpg → main Akita warrior character (large, for hero section)
+  images/about.jpg → Akita character variant for about section
+  images/logo.png → logo (if any)
+
+For now, use a blue glowing placeholder div where images go (background: var(--ton-blue-glow); border-radius: 50%;) so layout is visible without actual images.
+
+═══════════════════════════════════════
+FINAL CHECKLIST
+═══════════════════════════════════════
+□ Fully responsive (test at 375px, 768px, 1280px)
+□ All links are working anchors or external hrefs
+□ Copy contract button works with clipboard API
+□ particles.js initializes on page load
+□ AOS.js initializes on page load
+□ No console errors
+□ Smooth scrolling works on all nav links
+□ Mobile hamburger menu works
+□ All sections have their section IDs: #about #stats #tokenomics #roadmap #how-to-buy #community

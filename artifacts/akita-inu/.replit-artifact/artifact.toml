@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "AKITA INU — Guardian of TON"
+version = "1.0.0"
+id = "artifacts/akita-inu"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18204
+
+[services.development]
+run = "pnpm --filter @workspace/akita-inu run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/akita-inu", "run", "build" ]
+publicDir = "artifacts/akita-inu/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18204"
+BASE_PATH = "/"
