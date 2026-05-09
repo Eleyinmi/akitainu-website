@@ -142,6 +142,10 @@
 .font-inter {
   font-family: 'Inter', sans-serif;
 }
+.font-bangers {
+  font-family: 'Bangers', cursive;
+  letter-spacing: 0.05em;
+}
 
 .glass-card {
   background: rgba(8, 20, 45, 0.7);
