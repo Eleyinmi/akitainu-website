@@ -243,12 +243,12 @@ export default function Home() {
 
           {/* Eyebrow */}
           <motion.span
-            className="text-[#0098EA] text-xs md:text-sm font-bold tracking-[0.2em] uppercase bg-[#0098EA]/10 px-4 py-2 rounded-full border border-[#0098EA]/30"
+            className="mt-6 text-[#0098EA] text-[10px] md:text-sm font-bold tracking-[0.12em] md:tracking-[0.2em] uppercase bg-[#0098EA]/10 px-3 md:px-4 py-2 rounded-full border border-[#0098EA]/30 whitespace-nowrap text-center"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            TON Blockchain · Community Takeover
+            TON Blockchain · CTO Project
           </motion.span>
 
           {/* Character + floating buttons */}
@@ -534,53 +534,42 @@ export default function Home() {
 
       {/* ── Tokenomics ── */}
       <section id="tokenomics" className="py-24 relative">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 z-10 relative">
-          <div className="flex flex-col md:flex-row gap-12 items-center mb-16">
-            <div className="flex-1">
-              <span className="text-[#0098EA] font-bold tracking-widest text-sm uppercase mb-4 block">Akitanomics</span>
-              <h2 className="font-bangers text-5xl md:text-6xl text-white mb-6 tracking-wider">
-                Fair. Transparent. Community-Owned.
-              </h2>
-              <div className="inline-flex items-start gap-3 bg-[#f0b429]/10 border border-[#f0b429]/50 text-[#f0b429] px-6 py-3 rounded-lg text-sm md:text-base mb-8">
-                <span className="text-xl flex-shrink-0">⚠</span>
-                <p>No team allocation. No VC. No presale. This is a 100% CTO project.</p>
-              </div>
-              <p className="text-white/60 text-lg mb-10">Total Supply: <span className="text-white font-bold font-orbitron">1,000,000,000 AKITA</span></p>
-
-              {/* Allocation list — no charts */}
-              <div className="flex flex-col gap-4">
-                {[
-                  { label: "Liquidity", pct: 60, color: "#0098EA" },
-                  { label: "Community & Marketing", pct: 20, color: "#f0b429" },
-                  { label: "CEX Listing Fund", pct: 15, color: "#00e5ff" },
-                  { label: "Burn", pct: 5, color: "#ff6b35" },
-                ].map((item) => (
-                  <div key={item.label}>
-                    <div className="flex justify-between items-center mb-1.5">
-                      <span className="text-white/80 text-sm font-medium">{item.label}</span>
-                      <span className="font-orbitron text-sm font-bold" style={{ color: item.color }}>
-                        {item.pct}%
-                      </span>
-                    </div>
-                    <div className="h-2 bg-white/10 rounded-full overflow-hidden">
-                      <motion.div
-                        className="h-full rounded-full"
-                        style={{ backgroundColor: item.color }}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${item.pct}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1.2, ease: "easeOut" }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="w-full md:w-1/3 aspect-square rounded-2xl overflow-hidden shadow-[0_0_30px_rgba(240,180,41,0.2)] border border-[#f0b429]/30">
-              <img src="/images/akita-council.jpg" alt="Akita Council" className="w-full h-full object-cover" />
+        <div className="max-w-3xl mx-auto px-6 md:px-12 z-10 relative">
+          <div className="text-center mb-12">
+            <span className="text-[#0098EA] font-bold tracking-widest text-sm uppercase mb-4 block">Akitanomics</span>
+            <h2 className="font-bangers text-5xl md:text-6xl text-white mb-4 tracking-wider">
+              Fair. Transparent. Community-Owned.
+            </h2>
+            <div className="inline-flex items-start gap-3 bg-[#f0b429]/10 border border-[#f0b429]/50 text-[#f0b429] px-6 py-3 rounded-lg text-sm md:text-base">
+              <span className="text-xl flex-shrink-0">⚠</span>
+              <p>No team allocation. No VC. No presale. This is a 100% CTO project.</p>
             </div>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="glass-card rounded-2xl overflow-hidden border border-[#0098EA]/40 shadow-[0_0_40px_rgba(0,152,234,0.15)]"
+          >
+            {[
+              { label: "Token Name", value: "Akita Inu", accent: false },
+              { label: "Ticker", value: "$AKITA", accent: true },
+              { label: "Blockchain", value: "TON", accent: false },
+              { label: "Total Supply", value: "1,000,000,000", accent: false },
+              { label: "Liquidity", value: "🔒 Locked", accent: false },
+            ].map((row, i) => (
+              <div
+                key={row.label}
+                className={`flex items-center justify-between px-6 py-5 ${i < 4 ? "border-b border-white/8" : ""}`}
+              >
+                <span className="text-white/50 text-sm uppercase tracking-widest font-medium">{row.label}</span>
+                <span className={`font-orbitron text-base md:text-lg font-bold ${row.accent ? "text-[#0098EA]" : "text-white"}`}>
+                  {row.value}
+                </span>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
