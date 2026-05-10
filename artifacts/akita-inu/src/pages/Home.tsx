@@ -9,7 +9,7 @@ import {
 import { SiTelegram, SiX } from "react-icons/si";
 
 const CA = "EQD6ikvSPUcpE6HB_OjxCMVkFwrtK73CVV1VLR6NWEykojuQ";
-const BUY_LINK = `https://dedust.io/swap/TON/${CA}`;
+const BUY_LINK = "https://app.ston.fi/swap?chartVisible=false&ft=TON&tt=%24AKITA";
 
 interface TokenStats {
   price: string;
@@ -557,7 +557,7 @@ export default function Home() {
               { label: "Ticker", value: "$AKITA", accent: true },
               { label: "Blockchain", value: "TON", accent: false },
               { label: "Total Supply", value: "1,000,000,000", accent: false },
-              { label: "Liquidity", value: "🔒 Locked", accent: false },
+              { label: "Liquidity", value: "🔥 100% Burnt", accent: false },
             ].map((row, i) => (
               <div
                 key={row.label}
@@ -662,7 +662,7 @@ export default function Home() {
             {[
               { num: 1, title: "Get a TON Wallet", desc: "Download Tonkeeper or any TON wallet. Save your seed phrase securely.", icon: Wallet },
               { num: 2, title: "Buy TON", desc: "Purchase from Binance, OKX, Bybit and send to your wallet address.", icon: Send },
-              { num: 3, title: "Swap for AKITA", desc: "Go to DeDust.io, paste the contract, swap TON for AKITA.", icon: ArrowRightLeft },
+              { num: 3, title: "Swap for AKITA", desc: "Go to STON.fi, connect your wallet, and swap TON for AKITA.", icon: ArrowRightLeft },
             ].map((step, i) => (
               <motion.div
                 key={step.num}
@@ -692,7 +692,7 @@ export default function Home() {
               data-testid="button-buy-howtobuy"
               className="inline-block bg-gradient-to-r from-[#0098EA] to-[#29b6f6] text-white px-12 py-5 rounded-md font-bangers uppercase tracking-widest text-2xl shadow-[0_0_30px_rgba(0,152,234,0.5)] hover:shadow-[0_0_50px_rgba(0,152,234,0.8)] hover:scale-105 transition-all"
             >
-              Buy AKITA on DeDust →
+              Buy AKITA on STON.fi →
             </a>
           </div>
         </div>
